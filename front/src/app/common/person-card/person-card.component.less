@@ -57,12 +57,6 @@
 	transform: rotateY(180deg);
 }
 
-.card__photo,
-.card__contacts {
-	position: absolute;
-	backface-visibility: hidden;
-}
-
 .card__contacts {
 	transform: rotateY(180deg);
 }
@@ -76,6 +70,8 @@
 
 .card__photo,
 .card__contacts {
+	position: absolute;
+	backface-visibility: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -122,6 +118,10 @@
 
 	.card__content {
 		transform: rotateY(180deg);
+	}
+
+	.card__content:hover {
+		box-shadow: none;
 	}
 
 	.card__greeting {
