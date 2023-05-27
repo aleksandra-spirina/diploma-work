@@ -1,0 +1,46 @@
+@import url('/src/styles/colors.less');
+
+.slider {
+	height: 340px;
+	margin-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.slider__page {
+	display: flex;
+	flex-direction: row;
+	gap: 60px;
+}
+
+.page {
+	display: none;
+}
+
+.page_active {
+	display: flex;
+}
+
+.carousel__item:first-child {
+	margin-left: 0;
+}
+
+.slider__controls {
+	display: flex;
+	gap: 32px;
+}
+
+.controls__item {
+	width: 18px;
+	height: 18px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	border: 3px solid @main-blue-color;
+	cursor: pointer;
+}
+
+.controls__item_selected {
+	background-color: @main-blue-color;
+}

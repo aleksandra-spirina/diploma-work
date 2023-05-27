@@ -1,0 +1,25 @@
+<div class="card" (click)="flipping()" [ngClass]="{'card_fliped': flipped}">
+	<div class="card__content">
+		<!-- Фото -->
+		<div class="card__photo">
+			<div class="card__general-info">
+				<div class="card__name"><span>{{person.name}}</span></div>
+				<div class="card__role"><span>{{person.role}}</span></div>
+			</div>
+			<div class="card__img" [style.background-image]="person.imgUrl"></div>
+		</div>
+		<!-- Контакты -->
+		<div class="card__contacts">
+			<div class="card__general-info">
+				<div class="card__name"><span>{{person.name}}</span></div>
+				<div class="card__role"><span>{{person.role}}</span></div>
+			</div>
+			<div class="card__contacts-info contacts">
+				<div class="contacts__email item"><img class="contacts__img" src="/assets/icons/email.svg"></div>
+				<div class="contacts__linkedin item"><img class="contacts__img" src="/assets/icons/linkedin.svg"></div>
+				<div class="contacts__github item"><img class="contacts__img" src="/assets/icons/github.svg"></div>
+			</div>
+			<div class="card__greeting">Nice to meet you!</div>
+		</div>
+	</div>
+</div>

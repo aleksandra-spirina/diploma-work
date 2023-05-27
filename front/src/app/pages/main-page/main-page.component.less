@@ -1,0 +1,166 @@
+@import url('/src/styles/common.less');
+@import url('/src/styles/colors.less');
+@import url('/src/styles/break-points.less');
+
+.banner {
+	width: 100%;
+	background-image: url('src/assets/img/banner-desktop-large.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+	@media @desktop {
+		background-image: url('src/assets/img/banner-desktop.png');
+	}
+}
+
+.banner__content {
+	padding-top: 360px;
+	padding-bottom: 270px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 65px;
+
+	@media @desktop {
+		padding-top: 280px;
+		padding-bottom: 180px;
+	}
+}
+
+.banner__title {
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 500;
+	font-size: 54px;
+	text-align: center;
+
+	@media @desktop {
+		font-size: 48px;
+	}
+}
+
+.banner__info {
+	width: 625px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: @translucent-white;
+	border-radius: 10px;
+
+	@media @desktop {
+		width: 490px;
+	}
+}
+
+.banner__text {
+	width: 405px;
+	margin: 32px 0;
+	font-family: 'Space Grotesk';
+	font-weight: 400;
+	font-size: 16px;
+	text-align: justify;
+
+	@media @desktop {
+		width: 405px;
+	}
+}
+
+.banner__button {
+	margin-bottom: 25px;
+}
+
+.problem__container {
+	padding: 10px 0;
+	margin-bottom: 70px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	@media @desktop {
+		margin-bottom: 50px;
+	}
+}
+
+.problem__image {
+	width: 300px;
+	height: 250px;
+	background: url('src/assets/img/cancer-cells.png');
+	background-repeat: no-repeat;
+  background-size: contain;
+
+	@media @desktop {
+		width: 237px;
+		height: 237px;
+	}
+}
+
+.problem__text {
+	width: 625px;
+	height: 280px;
+	font-family: 'Space Grotesk', sans-serif;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 125%;
+	text-align: justify;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	@media @desktop {
+		width: 487px;
+		height: 320px;
+	}
+}
+
+.problem__text span {
+	display: inline-block;
+}
+
+.problem__text ul {
+	margin: 0;
+}
+
+.problem__text a {
+	color: @main-blue-color;
+	cursor: pointer;
+}
+
+.solution__container {
+	height: 160px;
+	margin-bottom: 70px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.solution__text {
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 125%;
+	text-align: justify;
+}
+
+.developed-by__container {
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 30px;
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 20px;
+}
+
+.developed-by__container img {
+	width: 170px;
+	height: 70px;
+	object-fit: cover;
+}
+
+.developed-by {
+	border-top: 1px solid @main-blue-color;
+	border-bottom: 1px solid @main-blue-color;
+}

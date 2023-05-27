@@ -1,0 +1,39 @@
+@import url('/src/styles/colors.less');
+@import url('/src/styles/break-points.less');
+
+.article {
+	width: 238px;
+	height: 290px;
+	padding: 11px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	border: 2px solid @main-blue-color;
+	border-radius: 10px;
+	font-family: 'Jura', sans-serif;
+
+	@media @desktop-large {
+		width: 300px;
+		height: 280px;
+	}
+}
+
+.article:hover {
+	box-shadow: 5px 5px 5px @translucent-blue;
+}
+
+.article__title {
+	font-weight: 700;
+	font-size: 24px;
+	padding-top: 18px;
+
+	@media @desktop-large {
+		padding-top: 10px;
+	}
+}
+
+.article__description {
+	font-weight: 700;
+	font-size: 14px;
+	padding-top: 7px;
+}

@@ -1,0 +1,22 @@
+<form class="contacts-form__form form" [formGroup]="form" autocomplete="off">
+	<div class="form__content">
+		<div class="form__row">
+			<label for="name">Your name:</label>
+			<br>
+			<input id="name" type="text" formControlName="name">
+		</div>
+		<div class="form__row">
+			<label for="email">Email:</label>
+			<br>
+			<input id="email" type="email" formControlName="email">
+		</div>
+		<div class="form__row">
+			<label for="message">Message:</label>
+			<br>
+			<textarea id="message" formControlName="message"></textarea>
+		</div>
+		<div class="form__row row_submit">
+			<input type="submit" class="button control-button" value="Submit">
+		</div>
+	</div>
+</form>

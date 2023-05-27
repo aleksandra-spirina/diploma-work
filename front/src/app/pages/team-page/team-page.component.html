@@ -1,0 +1,27 @@
+<app-header class="page-header"></app-header>
+<section class="our-team">
+	<div class="container">
+		<div class="row">
+			<div class="our-team__title section-title col_lg-8 col_md-10">
+				Our Team
+			</div>
+		</div>
+		<div class="row">
+			<div class="our-team__persons">
+				<app-person-card *ngFor="let person of personsService.persons" [person]="person"></app-person-card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="our-team__univercity">
+				<img src="assets/img/bsu-logo.jpg" alt="Logo of BSU">
+				<div class="our-team__ref">
+					<a href="https://bsu.by/" target="_blank">
+						bsu.by
+						<img src="/assets/icons/ref-arrow.svg">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<app-footer></app-footer>

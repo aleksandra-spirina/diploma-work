@@ -1,0 +1,134 @@
+@import url('/src/styles/colors.less');
+@import url('/src/styles/common.less');
+
+.container {
+	width: 840px;
+}
+
+.switch-buttons {
+	display: flex;
+	flex-direction: row;
+}
+
+.upload-button,
+.generate-button {
+	width: 50%;
+	height: 50px;
+	border: none;
+	background: none;
+	cursor: pointer;
+
+	font-family: 'Jura', sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	color: @translucent-black;
+
+	box-sizing: border-box;
+	padding-left: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.upload-button.active, 
+.generate-button.active {
+	border: 1px solid @translucent-black;
+	border-bottom: none;
+	color: @text-color;
+}
+
+.input-file {
+	position: relative;
+	display: inline-block;
+}
+
+.input-file-field {
+	width: 300px;
+	height: 30px;
+	padding-left: 20px;
+	box-sizing: border-box;
+
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+
+	background-color: @form-background;
+	border-radius: 3px;
+	border: 1px solid @form-border;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.input-file input[type="file"] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+.form {
+	width: 840px;
+	height: 225px;
+	border: 1px solid @translucent-black;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.file-processing {
+	height: 100%;
+	width: 50%;
+	box-sizing: border-box;
+	padding-left: 50px;
+	padding-top: 50px;
+	
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.file-processing>span {
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.control-buttons {
+	height: 100%;
+	width: 50%;
+	box-sizing: border-box;
+	padding-left: 50px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 20px;
+	align-items: flex-start;
+}
+
+.select-distribution {
+	width: 300px;
+	height: 30px;
+	box-sizing: border-box;
+
+	background-color: @form-background;
+	border-radius: 3px;
+	border: 1px solid @form-border;
+
+	cursor: pointer;
+	padding-left: 15px;
+
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+}

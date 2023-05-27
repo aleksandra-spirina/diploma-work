@@ -1,0 +1,23 @@
+<app-header class="page-header"></app-header>
+<section class="generate">
+	<div class="container">
+		<div class="row">
+			<div class="generate__title section-title col_lg-8 col_md-10">
+				Generate
+			</div>
+		</div>
+		<div class="row">
+			<div class="generate__text col_lg-8 col_md-10">
+				Here you can use the results of our work. To generate 128 numbers (representation of a molecule in a latent
+				space) and the energy value are required. You can <span>upload a text file</span> (see the instructions file) or
+				<span> generate input data</span> randomly by selecting the desired distribution. At the output you will get a
+				string - a potential
+				SMILES molecule that describes a new ligand against acute myeloid leukemia.
+			</div>
+		</div>
+		<div class="row">
+			<app-generate-form class="generate__form"></app-generate-form>
+		</div>
+	</div>
+</section>
+<app-footer></app-footer>

@@ -1,0 +1,39 @@
+@import url('/src/styles/common.less');
+@import url('/src/styles/colors.less');
+
+.our-team {
+	margin-top: 155px;
+	margin-bottom: 110px;
+}
+
+.our-team__persons {
+	display: flex;
+	flex-direction: row;
+	gap: 55px;
+
+	@media @desktop {
+		gap: 30px;
+	}
+}
+
+.our-team__univercity {
+	margin-top: 70px;
+	display: flex;
+	flex-direction: row;
+	gap: 25px;
+	align-items: center;
+}
+
+.our-team__ref>a {
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	color: @main-blue-color;
+	cursor: pointer;
+}
+
+.our-team__univercity>img {
+	width: 170px;
+	height: 70px;
+	object-fit: cover;
+}

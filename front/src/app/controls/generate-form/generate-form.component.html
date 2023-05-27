@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="switch-buttons">
+		<button class="upload-button" [ngClass]="{active: fileUpload}" (click)="toggle()">Upload file</button>
+		<button class="generate-button" [ngClass]="{active: !fileUpload}" (click)="toggle()">Generate randomly</button>
+	</div>
+	<form class="form form-upload" *ngIf="fileUpload">
+		<div class="file-processing">
+			<label class="input-file">
+				<input type="file" name="file" accept="text/*" (change)="onFileSelected($event)">
+				<span class="input-file-field">Select a file...</span>
+			</label>
+			<span>Progress:</span>
+		</div>
+		<div class="control-buttons">
+			<button class="control-button">Start generating</button>
+			<button class="control-button">Download</button>
+		</div>
+	</form>
+	<form class="form form-select" *ngIf="!fileUpload">
+		<div class="file-processing">
+			<select class="select-distribution">
+				<option disabled selected>Select distribution</option>
+				<option>Normal distribution</option>
+				<option>Continuous uniform distribution</option>
+				<option>Student's t-distribution</option>
+			</select>
+			<span>Progress:</span>
+		</div>
+		<div class="control-buttons">
+			<button class="control-button">Start generating</button>
+			<button class="control-button">Download input</button>
+			<button class="control-button">Download</button>
+		</div>
+	</form>
+</div>

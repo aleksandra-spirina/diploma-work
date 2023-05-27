@@ -1,0 +1,90 @@
+@import url('/src/styles/common.less');
+
+.contacts {
+	margin-top: 155px;
+	margin-bottom: 80px;
+}
+
+.contacts-form {
+	margin-bottom: 110px;
+
+	@media @desktop {
+		margin-bottom: 90px;
+	}
+}
+
+.contacts__persons {
+	display: flex;
+	flex-direction: row;
+	gap: 55px;
+
+	@media @desktop {
+		gap: 35px;
+	}
+}
+
+.contacts-form__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.contacts-form__title {
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 500;
+	font-size: 32px;
+	margin: 0;
+	margin-bottom: 45px;
+}
+
+.contacts-form__wrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 100px;
+}
+
+.contacts-form__inf {
+	height: 100%;
+}
+
+.inf__text {
+	width: 518px;
+	height: 154px;
+	margin-top: 20px;
+
+	display: flex;
+	align-items: center;
+
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	text-align: justify;
+
+	@media @desktop {
+		width: 373px;
+		height: 154px;
+		font-size: 20px;
+	}
+}
+
+.inf__univercity>img {
+	width: 170px;
+	height: 70px;
+	object-fit: cover;
+}
+
+.inf__univercity {
+	margin-top: 70px;
+	display: flex;
+	flex-direction: row;
+	gap: 25px;
+	align-items: center;
+}
+
+.inf__ref>a {
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	color: @main-blue-color;
+	cursor: pointer;
+}
