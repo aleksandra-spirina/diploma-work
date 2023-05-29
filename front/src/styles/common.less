@@ -18,6 +18,18 @@
 		padding: 0 55px;
 		border: 2px solid @main-blue-color;
 	}
+
+	@media @tablet-interval {
+		font-size: 16px;
+		height: 40px;
+		padding: 0 40px;
+	}
+
+	@media @mobile {
+		height: 35px;
+		padding: 0 30px;
+		font-size: 14px;
+	}
 }
 
 .control-button:hover {
@@ -42,5 +54,18 @@
 
 	@media @desktop {
 		width: 655px;
+	}
+
+	@media @tablet-interval {
+		font-size: 32px;
+		width: 370px;
+	}
+
+	@media @mobile {
+		font-size: 20px;
+		width: 245px;
+		height: 48px;
+		margin-top: 10px;
+		margin-bottom: 20px;
 	}
 }

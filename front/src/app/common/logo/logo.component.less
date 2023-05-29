@@ -1,3 +1,5 @@
+@import url('/src/styles/break-points.less');
+
 .logo {
 	display: flex;
 	flex-direction: column;
@@ -13,9 +15,19 @@
 .logo__title {
 	font-size: 32px;
 	line-height: 38px;
+
+	@media @mobile {
+		font-size: 22px;
+		line-height: 26px;
+	}
 }
 
 .logo__subtitle {
 	font-size: 18px;
 	line-height: 21px;
+
+	@media @mobile {
+		font-size: 12px;
+		line-height: 14px;
+	}
 }

@@ -7,5 +7,10 @@ import { Router } from '@angular/router';
 	styleUrls: ['./menu.component.less']
 })
 export class MenuComponent {
+	active: boolean = false;
 	constructor(public router: Router) {}
+
+	toggle(): void {
+		this.active = !this.active;
+	}
 }

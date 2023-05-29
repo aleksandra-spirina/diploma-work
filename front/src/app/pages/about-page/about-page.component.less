@@ -1,8 +1,19 @@
 @import url('/src/styles/common.less');
+@import url('/src/styles/break-points.less');
 
 .about {
 	margin-top: 155px;
 	margin-bottom: 110px;
+
+	@media @tablet-interval {
+		margin-top: 140px;
+		margin-bottom: 70px;
+	}
+
+	@media @mobile {
+		margin-top: 90px;
+		margin-bottom: 50px;
+	}
 }
 
 .about__text {
@@ -11,6 +22,10 @@
 	font-size: 16px;
 	line-height: 20px;
 	text-align: justify;
+
+	@media @mobile {
+		font-size: 14px;
+	}
 }
 
 .conferences {
@@ -27,14 +42,26 @@
 	font-weight: 500;
 	font-size: 32px;
 	margin: 0;
+
+	@media @mobile {
+		font-size: 22px;
+	}
 }
 
-.conferences__list {
+.conferences_list {
 	font-weight: 400;
 	font-size: 16px;
 	align-self: flex-start;
+
+	@media @mobile {
+		font-size: 14px;
+	}
 }
 
 .about__conferences {
 	margin-top: 60px;
+
+	@media @tablet-interval {
+		margin-top: 40px;
+	}
 }

@@ -1,5 +1,8 @@
-<div class="menu">
-	<ul>
+<div class="menu" [ngClass]="{menu_active: active}">
+	<label class="menu__btn" (click)="toggle()">
+		<span></span>
+	</label>
+	<ul class="menu__list">
 		<li><a routerLink="/about" [ngClass]="{active:router.url==='/about'}">About</a></li>
 		<li><a routerLink="/team" [ngClass]="{active:router.url==='/team'}">Team</a></li>
 		<li><a routerLink="/generate" [ngClass]="{active:router.url==='/generate'}">Generate</a></li>

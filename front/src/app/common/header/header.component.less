@@ -1,4 +1,5 @@
 @import url('/src/styles/colors.less');
+@import url('/src/styles/break-points.less');
 
 :host.main-page .header {
 	background-color: @translucent-white;
@@ -21,4 +22,8 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+
+	@media @mobile {
+		height: 40px;
+	}
 }

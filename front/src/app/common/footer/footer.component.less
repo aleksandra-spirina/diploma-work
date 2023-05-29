@@ -1,9 +1,17 @@
 @import url('/src/styles/common.less');
 @import url('/src/styles/colors.less');
+@import url('/src/styles/break-points.less');
 
 .footer {
 	width: 100%;
 	background-color: @translucent-blue;
+
+	@media @tablet-interval,
+	@mobile {
+		.footer__menu {
+			display: none;
+		}
+	}
 }
 
 .footer__container {
@@ -14,6 +22,18 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+
+	@media @tablet-interval {
+		height: 140px;
+		padding: 0;
+		justify-content: center;
+	}
+
+	@media @mobile {
+		height: 100px;
+		padding: 0;
+		justify-content: center;
+	}
 }
 
 .footer__top {
@@ -23,4 +43,3 @@
 	justify-content: space-between;
 	align-items: center;
 }
-
