@@ -2,17 +2,13 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-	data: any;
+	data: string;
 
 	constructor() {
-		this.data = "start";
+		this.data = "hello world";
 	}
 
 	getData(): string {
 		return this.data;
-	}
-
-	test(tmp: any): void {
-		this.data = tmp;
 	}
 }
