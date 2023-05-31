@@ -71,8 +71,10 @@ export class GenerateFormComponent {
 
 				if (error.status === 500) {
 					this.currentStatus = 'incorrect data in the file';
+					return of(void 0);
 				}
 
+				this.currentStatus = 'invalid request';
 				return of(void 0);
 			}),
 			switchMap(status => {
@@ -85,13 +87,11 @@ export class GenerateFormComponent {
 			})
 		).subscribe(result => {
 			if (result) {
-				this.currentStatus = 'the generation was successful';
+				this.currentStatus = 'response received';
 				this.downloadAvailable = true;
 				const blob = new Blob([JSON.stringify(result!)], { type: 'application/octet-stream' });
 
 				this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
-			} else {
-				this.currentStatus = 'the generation failed';
 			}
 		})
 	}
@@ -100,5 +100,9 @@ export class GenerateFormComponent {
 		this.currentStatus = 'no file selected';
 		this.fileName = fileNamePass;
 		this.generationAvailable = false;
+	}
+
+	onSelected(value: string) {
+		console.log(value);
 	}
 }

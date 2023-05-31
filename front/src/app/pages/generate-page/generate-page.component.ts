@@ -7,5 +7,5 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 	styleUrls: ['./generate-page.component.less']
 })
 export class GeneratePageComponent {
-	fileUrl: SafeResourceUrl = 'assets/sources/latent-space.txt';
+	fileUrl: SafeResourceUrl = 'assets/sources/LATENT_SPACE_DATA.csv';
 }

@@ -25,11 +25,11 @@
 	</form>
 	<form class="form form-select" *ngIf="!fileUpload">
 		<div class="file-processing">
-			<select class="select-distribution">
+			<select class="select-distribution" #options (change)="onSelected(options.value)">
 				<option disabled selected>Select distribution</option>
-				<option>Normal distribution</option>
-				<option>Continuous uniform distribution</option>
-				<option>Student's t-distribution</option>
+				<option value="normal">Normal distribution</option>
+				<option value="continuous">Continuous uniform distribution</option>
+				<option value="students">Student's t-distribution</option>
 			</select>
 			<div class="progress-label">
 				<span class="progress-label__title">Progress:</span>
