@@ -1,6 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, Input, OnInit } from '@angular/core';
-import { SliderService } from 'src/app/services/slider.service';
+import { SliderService } from 'src/app/shared/services/slider.service';
 import { Article } from 'src/interfaces/Article';
 
 

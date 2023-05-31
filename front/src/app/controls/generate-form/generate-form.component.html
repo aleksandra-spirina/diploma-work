@@ -1,19 +1,26 @@
 <div class="generate-container">
 	<div class="switch-buttons">
-		<button class="upload-button" [ngClass]="{active: fileUpload}" (click)="toggle()">Upload file</button>
-		<button class="generate-button" [ngClass]="{active: !fileUpload}" (click)="toggle()">Generate randomly</button>
+		<button class="upload-button" [ngClass]="{active: fileUpload}" (click)="toggle($event)">Upload file</button>
+		<button class="generate-button" [ngClass]="{active: !fileUpload}" (click)="toggle($event)">Generate
+			randomly</button>
 	</div>
 	<form class="form form-upload" *ngIf="fileUpload">
 		<div class="file-processing">
 			<label class="input-file">
 				<input type="file" name="file" accept="text/*" (change)="onFileSelected($event)">
-				<span class="input-file-field">Select a file...</span>
+				<span class="input-file-field">{{fileName}}</span>
 			</label>
-			<span>Progress:</span>
+			<div class="progress-label">
+				<span class="progress-label__title">Progress:</span>
+				<span class="progress-label__status">{{currentStatus}}</span>
+			</div>
 		</div>
 		<div class="control-buttons">
-			<button class="control-button">Start generating</button>
-			<button class="control-button">Download</button>
+			<button type="button" class="control-button" [disabled]="!generationAvailable" (click)="startGenerating()">Start
+				generating</button>
+			<a [href]="fileUrl"  download="generation-result.txt">
+				<button type="button" class="control-button" [disabled]="!downloadAvailable" (click)="download()">Download</button>
+			</a>
 		</div>
 	</form>
 	<form class="form form-select" *ngIf="!fileUpload">
@@ -24,7 +31,10 @@
 				<option>Continuous uniform distribution</option>
 				<option>Student's t-distribution</option>
 			</select>
-			<span>Progress:</span>
+			<div class="progress-label">
+				<span class="progress-label__title">Progress:</span>
+				<span class="progress-label__status">{{currentStatus}}</span>
+			</div>
 		</div>
 		<div class="control-buttons">
 			<button class="control-button">Start generating</button>

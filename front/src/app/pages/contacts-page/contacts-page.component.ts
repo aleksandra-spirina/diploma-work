@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PersonsService } from 'src/app/services/persons.service';
+import { PersonsService } from 'src/app/shared/services/persons.service';
 
 @Component({
 	selector: 'app-contacts-page',

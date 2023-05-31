@@ -1,12 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { catchError, concatMap, of, switchMap } from 'rxjs';
+import { ModelService } from 'src/app/shared/services/model.service';
+import { SendData } from 'src/interfaces/SendData';
 
-const host = "http://34.125.130.196:5000/api/send_latent";
-
-interface SendData {
-	latent: string;
-	energy: string;
-}
+const fileNamePass = 'Select a file...';
 
 @Component({
 	selector: 'app-generate-form',
@@ -15,25 +13,29 @@ interface SendData {
 })
 export class GenerateFormComponent {
 	fileUpload: boolean = true;
-	private reader = new FileReader();
-	fileName = '';
+	generationAvailable: boolean = false;
+	downloadAvailable: boolean = false;
+	isError: boolean = false;
 
-	constructor(httpClient: HttpClient) {
+	previousMode: string = 'upload-button';
+	private reader = new FileReader();
+	sendData: SendData = {} as SendData;
+
+	fileName = fileNamePass;
+	currentStatus = 'no file selected';
+	fileUrl: SafeResourceUrl = '';
+
+	constructor(private modelService: ModelService, private sanitizer: DomSanitizer) {
 		this.reader.addEventListener(
 			"load", () => {
 				let parseData: number[] = this.reader.result!.toString().split(' ').map((x) => parseFloat(x));
-				let send: SendData = {
-					latent: `[${parseData.slice(0, 128).join(', ')}]`,
-					energy: parseData[128].toString()
-				}
-
-				console.log(JSON.stringify(send));
-				httpClient.post(host, JSON.stringify(send), {
-					headers: {
-						'Content-type': 'application/json',
-						'Accept': 'application/json'
+				if (parseData.length === 129) {
+					let send: SendData = {
+						latent: `[${parseData.slice(0, 128).join(', ')}]`,
+						energy: parseData[128].toString()
 					}
-				}).subscribe(res => console.log(res))
+					this.sendData = send
+				}
 			},
 			false
 		);
@@ -42,12 +44,61 @@ export class GenerateFormComponent {
 	onFileSelected(event: any) {
 		const file: File = event.target.files[0];
 		if (file) {
+			this.generationAvailable = true;
 			this.fileName = file.name;
+			this.currentStatus = `${this.fileName} is selected`
 			this.reader.readAsText(file);
 		}
 	}
 
-	toggle(): void {
-		this.fileUpload = !this.fileUpload;
+	toggle(event: Event): void {
+		const targetBtn = (event.target as HTMLElement).classList[0];
+		if (targetBtn != this.previousMode) {
+			this.fileUpload = !this.fileUpload;
+			this.previousMode = targetBtn;
+		}
+	}
+
+	startGenerating(): void {
+		this.generationAvailable = false;
+		this.currentStatus = 'the request is being processed';
+
+		this.modelService.sendRequest(this.sendData).pipe(
+			catchError((error) => {
+				if (error.status === 200) {
+					return of('OK');
+				}
+
+				if (error.status === 500) {
+					this.currentStatus = 'incorrect data in the file';
+				}
+
+				return of(void 0);
+			}),
+			switchMap(status => {
+				if (status === 'OK') {
+					this.currentStatus = 'the generation in progress';
+					return this.modelService.getAnswer();
+				} else {
+					return of(void 0);
+				}
+			})
+		).subscribe(result => {
+			if (result) {
+				this.currentStatus = 'the generation was successful';
+				this.downloadAvailable = true;
+				const blob = new Blob([JSON.stringify(result!)], { type: 'application/octet-stream' });
+
+				this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
+			} else {
+				this.currentStatus = 'the generation failed';
+			}
+		})
+	}
+
+	download(): void {
+		this.currentStatus = 'no file selected';
+		this.fileName = fileNamePass;
+		this.generationAvailable = false;
 	}
 }
