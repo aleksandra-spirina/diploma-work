@@ -21,6 +21,8 @@ import { ArticleComponent } from './controls/slider/article/article.component';
 import { PersonCardComponent } from './common/person-card/person-card.component';
 import { ContactFormComponent } from './controls/contact-form/contact-form.component';
 import { GenerateFormComponent } from './controls/generate-form/generate-form.component';
+import { UploadFormComponent } from './controls/generate-form/upload-form/upload-form.component';
+import { SelectFormComponent } from './controls/generate-form/select-form/select-form.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { GenerateFormComponent } from './controls/generate-form/generate-form.co
 		ArticleComponent,
 		PersonCardComponent,
 		ContactFormComponent,
-		GenerateFormComponent
+		GenerateFormComponent,
+  UploadFormComponent,
+  SelectFormComponent
 	],
 	imports: [
 		BrowserModule,

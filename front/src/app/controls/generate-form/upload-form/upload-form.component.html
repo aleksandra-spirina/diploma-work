@@ -1,0 +1,20 @@
+<form class="form form-upload">
+	<div class="file-processing">
+		<label class="input-file">
+			<input type="file" name="file" accept="text/*" (change)="onFileSelected($event)">
+			<span class="input-file-field">{{fileName}}</span>
+		</label>
+		<div class="progress-label">
+			<span class="progress-label__title">Progress:</span>
+			<span class="progress-label__status">{{currentStatus}}</span>
+		</div>
+	</div>
+	<div class="control-buttons">
+		<button type="button" class="control-button" [disabled]="!generationAvailable" (click)="startGenerating()">Start
+			generating</button>
+		<a [href]="fileUrl" download="generation-result.txt">
+			<button type="button" class="control-button" [disabled]="!downloadAvailable"
+				(click)="download()">Download</button>
+		</a>
+	</div>
+</form>

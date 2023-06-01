@@ -1,0 +1,36 @@
+<form class="form form-select" [formGroup]="form">
+	<div class="file-processing">
+		<select class="select-distribution" #options (change)="onSelected(options.value)" formControlName="distType">
+			<option disabled selected>Select distribution</option>
+			<option value="normal">Normal distribution</option>
+			<option value="continuous">Continuous uniform distribution</option>
+			<option value="beta">Beta distribution</option>
+		</select>
+		<div class="input-energy">
+			<label>Binding energy: </label>
+			<input class="input-energy__field" type="number" formControlName="energyValue">
+			<div *ngIf="energyValue!.invalid && (energyValue!.touched || energyValue!.dirty)" class="form__error">
+				<span *ngIf="energyValue!.errors?.['required']" class="error__text">The field is required</span>
+				<span *ngIf="energyValue!.errors?.['min']" class="error__text">Max value is -10</span>
+				<span *ngIf="energyValue!.errors?.['max']" class="error__text">Min value is -14</span>
+			</div>
+		</div>
+		<div class="progress-label">
+			<span class="progress-label__title">Progress:</span>
+			<span class="progress-label__status">{{currentStatus}}</span>
+		</div>
+	</div>
+	<div class="control-buttons">
+		<button class="control-button" type="button" [disabled]="form.invalid && generationAvailable" (click)="generate()">Start
+			generating</button>
+		<a [href]="inputFileUrl" download="input.txt">
+			<button class="control-button" type="button" [disabled]="!downloadInputAvailable"
+				(click)="downloadInput()">Download
+				input</button>
+		</a>
+		<a [href]="resultFileUrl" download="generation-result.txt">
+			<button class="control-button" type="button" [disabled]="!downloadAvailable"
+				(click)="downloadResult()">Download</button>
+		</a>
+	</div>
+</form>
