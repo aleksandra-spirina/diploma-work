@@ -23,6 +23,11 @@ import { ContactFormComponent } from './controls/contact-form/contact-form.compo
 import { GenerateFormComponent } from './controls/generate-form/generate-form.component';
 import { UploadFormComponent } from './controls/generate-form/upload-form/upload-form.component';
 import { SelectFormComponent } from './controls/generate-form/select-form/select-form.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -42,8 +47,8 @@ import { SelectFormComponent } from './controls/generate-form/select-form/select
 		PersonCardComponent,
 		ContactFormComponent,
 		GenerateFormComponent,
-  UploadFormComponent,
-  SelectFormComponent
+		UploadFormComponent,
+		SelectFormComponent
 	],
 	imports: [
 		BrowserModule,
@@ -51,7 +56,11 @@ import { SelectFormComponent } from './controls/generate-form/select-form/select
 		LayoutModule,
 		RouterModule.forRoot([]),
 		ReactiveFormsModule,
-		HttpClientModule
+		HttpClientModule,
+		provideFirebaseApp(() => initializeApp(environment.firebase)),
+		provideAuth(() => getAuth()),
+		provideDatabase(() => getDatabase()),
+		provideFirestore(() => getFirestore())
 	],
 	providers: [],
 	bootstrap: [AppComponent]
