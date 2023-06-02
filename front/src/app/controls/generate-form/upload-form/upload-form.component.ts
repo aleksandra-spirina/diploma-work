@@ -40,6 +40,7 @@ export class UploadFormComponent {
 		this.modelService.sendRequest(this.sendData).pipe(
 			catchError((error) => {
 				if (error.status === 200) {
+					console.log('post is ok');
 					return of('OK');
 				}
 

@@ -2,8 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const postHost = "http://34.125.34.30:5000/api/send_distribution";
-const getHost = "http://34.125.34.30:5000/api/get_distribution";
+// const postHost = "http://34.125.34.30:5000/api/send_distribution";
+// const getHost = "http://34.125.34.30:5000/api/get_distribution";
+
+const postHost = "https://model-api-ximjvvnn3q-nw.a.run.app/api/send_distribution";
+const getHost = "https://model-api-ximjvvnn3q-nw.a.run.app/api/get_distribution";
 
 @Injectable({
   providedIn: 'root'

@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
-import { SendData } from "src/interfaces/SendData";
 
-const postHost = "http://34.125.34.30:5000/api/send_latent";
-const getHost = "http://34.125.34.30:5000/api/get_smiles"
+// const postHost = "http://34.125.34.30:5000/api/send_latent";
+// const getHost = "http://34.125.34.30:5000/api/get_smiles"
+
+const postHost = "https://model-api-ximjvvnn3q-nw.a.run.app/api/send_latent";
+const getHost = "https://model-api-ximjvvnn3q-nw.a.run.app/api/get_smiles";
 
 @Injectable({ providedIn: 'root' })
 export class ModelService {
