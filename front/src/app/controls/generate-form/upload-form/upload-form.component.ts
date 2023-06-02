@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { catchError, of, switchMap } from 'rxjs';
 import { ModelService } from 'src/app/shared/services/model.service';
-import { SendData } from 'src/interfaces/SendData';
 
 const fileNamePass = 'Select a file...';
 
@@ -40,7 +39,6 @@ export class UploadFormComponent {
 		this.modelService.sendRequest(this.sendData).pipe(
 			catchError((error) => {
 				if (error.status === 200) {
-					console.log('post is ok');
 					return of('OK');
 				}
 

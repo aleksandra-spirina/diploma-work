@@ -8,4 +8,5 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class GeneratePageComponent {
 	fileUrl: SafeResourceUrl = 'assets/sources/LATENT_SPACE_DATA.csv';
+	exampleFileUrl: SafeResourceUrl = 'assets/sources/example.txt';
 }

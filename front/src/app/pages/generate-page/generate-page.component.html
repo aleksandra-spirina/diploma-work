@@ -1,18 +1,27 @@
 <app-header class="page-header"></app-header>
 <section class="generate">
 	<div class="container">
-		<div class="row"> 
+		<div class="row">
 			<div class="generate__title section-title col_lg-8 col_md-10 col_sm-8 col_xs-10">
 				Generate
 			</div>
 		</div>
 		<div class="row">
 			<div class="generate__text col_lg-8 col_md-10 col_sm-10 col_xs-10">
-				Here you can use the results of our work. To generate 128 numbers (representation of a molecule in a latent
-				space) and the energy value are required. You can <a [href]="fileUrl" download="latent-space.csv">upload a csv-file</a> (see the instructions file) or 
-				generate input data randomly by selecting the desired distribution. At the output you will get a
-				string - a potential
-				SMILES molecule that describes a new ligand against acute myeloid leukemia.
+				<p>Here you can use the results of our work. To generate are required:</p>
+				<ul>
+					<li>128 numbers (representation of a molecule in a latent space);</li>
+					<li>the energy value.</li>
+				</ul>
+				<p>
+					You can <a [href]="fileUrl" download="latent-space.csv">download a csv-file</a> with a description of the
+					hidden space for composing input data or generate input data randomly by selecting the desired distribution.
+					See <a [href]="exampleFileUrl" download="input-example.txt">input file example</a>.
+				</p>
+				<p>
+					At the output you will get a string - a potential SMILES molecule that describes a new ligand against acute
+					myeloid leukemia.
+				</p>
 			</div>
 		</div>
 		<div class="row">
