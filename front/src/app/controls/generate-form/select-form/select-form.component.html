@@ -11,8 +11,8 @@
 			<input class="input-energy__field" type="number" formControlName="energyValue">
 			<div *ngIf="energyValue!.invalid && (energyValue!.touched || energyValue!.dirty)" class="form__error">
 				<span *ngIf="energyValue!.errors?.['required']" class="error__text">The field is required</span>
-				<span *ngIf="energyValue!.errors?.['min']" class="error__text">Max value is -10</span>
-				<span *ngIf="energyValue!.errors?.['max']" class="error__text">Min value is -14</span>
+				<span *ngIf="energyValue!.errors?.['min']" class="error__text">Min value is -14</span>
+				<span *ngIf="energyValue!.errors?.['max']" class="error__text">Max value is -10</span>
 			</div>
 		</div>
 		<div class="progress-label">

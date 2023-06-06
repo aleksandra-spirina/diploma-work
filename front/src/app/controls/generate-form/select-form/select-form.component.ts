@@ -51,6 +51,8 @@ export class SelectFormComponent {
 		this.downloadInputAvailable = false;
 		this.generationAvailable = false;
 
+		this.currentStatus = 'the request is being processed';
+
 		this.randomInputService.sendRequest(JSON.stringify(this.dist)).pipe(
 			catchError((error) => {
 				if (error.status === 200) {
